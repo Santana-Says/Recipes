@@ -5,6 +5,7 @@
 //  Created by Jeffrey Santana on 10/12/24.
 //
 
+import CoreRecipesPresentation
 import SwiftUI
 
 @main

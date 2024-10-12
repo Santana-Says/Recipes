@@ -1,14 +1,11 @@
-//
-//  ContentView.swift
-//  Recipes
-//
-//  Created by Jeffrey Santana on 10/12/24.
-//
-
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
+public struct ContentView: View {
+    public init() {
+        
+    }
+    
+    public var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)

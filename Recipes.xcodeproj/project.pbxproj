@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD8B18792CBAA33600DC5456 /* CoreRecipesPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */; };
 		ADB91F7B2CBA9456004D6046 /* RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB91F7A2CBA9456004D6046 /* RecipesApp.swift */; };
-		ADB91F7D2CBA9456004D6046 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB91F7C2CBA9456004D6046 /* ContentView.swift */; };
 		ADB91F7F2CBA945A004D6046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB91F7E2CBA945A004D6046 /* Assets.xcassets */; };
 		ADB91F822CBA945A004D6046 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB91F812CBA945A004D6046 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		ADB91F772CBA9456004D6046 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADB311CE2CBA9B450015D4A0 /* Recipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADB311D62CBAA0870015D4A0 /* CoreRecipes */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreRecipes; sourceTree = "<group>"; };
 		ADB91F7A2CBA9456004D6046 /* RecipesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesApp.swift; sourceTree = "<group>"; };
-		ADB91F7C2CBA9456004D6046 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ADB91F7E2CBA945A004D6046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ADB91F812CBA945A004D6046 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -26,33 +26,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD8B18792CBAA33600DC5456 /* CoreRecipesPresentation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ADB311D32CBA9BD60015D4A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ADB91F6E2CBA9456004D6046 = {
 			isa = PBXGroup;
 			children = (
+				ADB311D62CBAA0870015D4A0 /* CoreRecipes */,
 				ADB91F792CBA9456004D6046 /* Recipes */,
-				ADB91F782CBA9456004D6046 /* Products */,
+				ADB311CE2CBA9B450015D4A0 /* Recipes.app */,
+				ADB311D32CBA9BD60015D4A0 /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		ADB91F782CBA9456004D6046 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				ADB91F772CBA9456004D6046 /* Recipes.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		ADB91F792CBA9456004D6046 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
 				ADB91F7A2CBA9456004D6046 /* RecipesApp.swift */,
-				ADB91F7C2CBA9456004D6046 /* ContentView.swift */,
 				ADB91F7E2CBA945A004D6046 /* Assets.xcassets */,
 				ADB91F802CBA945A004D6046 /* Preview Content */,
 			);
@@ -83,8 +84,11 @@
 			dependencies = (
 			);
 			name = Recipes;
+			packageProductDependencies = (
+				AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */,
+			);
 			productName = Recipes;
-			productReference = ADB91F772CBA9456004D6046 /* Recipes.app */;
+			productReference = ADB311CE2CBA9B450015D4A0 /* Recipes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +115,7 @@
 				Base,
 			);
 			mainGroup = ADB91F6E2CBA9456004D6046;
-			productRefGroup = ADB91F782CBA9456004D6046 /* Products */;
+			productRefGroup = ADB91F6E2CBA9456004D6046;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -137,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADB91F7D2CBA9456004D6046 /* ContentView.swift in Sources */,
 				ADB91F7B2CBA9456004D6046 /* RecipesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +278,12 @@
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +308,12 @@
 				DEVELOPMENT_TEAM = PD94K2S3RY;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +349,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreRecipesPresentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ADB91F6F2CBA9456004D6046 /* Project object */;
 }
