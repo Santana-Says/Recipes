@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD8B18792CBAA33600DC5456 /* CoreRecipesPresentation in Frameworks */ = {isa = PBXBuildFile; productRef = AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */; };
+		AD8B187B2CBACDE800DC5456 /* CoreRecipesData in Frameworks */ = {isa = PBXBuildFile; productRef = AD8B187A2CBACDE800DC5456 /* CoreRecipesData */; };
 		ADB91F7B2CBA9456004D6046 /* RecipesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB91F7A2CBA9456004D6046 /* RecipesApp.swift */; };
 		ADB91F7F2CBA945A004D6046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB91F7E2CBA945A004D6046 /* Assets.xcassets */; };
 		ADB91F822CBA945A004D6046 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADB91F812CBA945A004D6046 /* Preview Assets.xcassets */; };
@@ -27,6 +28,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8B18792CBAA33600DC5456 /* CoreRecipesPresentation in Frameworks */,
+				AD8B187B2CBACDE800DC5456 /* CoreRecipesData in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +88,7 @@
 			name = Recipes;
 			packageProductDependencies = (
 				AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */,
+				AD8B187A2CBACDE800DC5456 /* CoreRecipesData */,
 			);
 			productName = Recipes;
 			productReference = ADB311CE2CBA9B450015D4A0 /* Recipes.app */;
@@ -354,6 +357,10 @@
 		AD8B18782CBAA33600DC5456 /* CoreRecipesPresentation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CoreRecipesPresentation;
+		};
+		AD8B187A2CBACDE800DC5456 /* CoreRecipesData */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreRecipesData;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -9,18 +9,18 @@ let package = Package(
         .iOS(.v16)
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(name: "CoreRecipes", targets: ["CoreRecipes"]),
         .library(name: "CoreRecipesData",targets: ["CoreRecipesData"]),
         .library(name: "CoreRecipesDomain",targets: ["CoreRecipesDomain"]),
         .library(name: "CoreRecipesPresentation",targets: ["CoreRecipesPresentation"])
     ],
+    dependencies: [
+        .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(name: "CoreRecipes"),
         .target(name: "CoreRecipesData", dependencies: ["CoreRecipesDomain"]),
-        .target(name: "CoreRecipesDomain"),
+        .target(name: "CoreRecipesDomain", dependencies: ["Swinject"]),
         .target(name: "CoreRecipesPresentation", dependencies: ["CoreRecipesDomain"]),
         .testTarget(
             name: "CoreRecipesTests",
