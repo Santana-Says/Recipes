@@ -8,16 +8,20 @@
 import CoreRecipesData
 import CoreRecipesPresentation
 import SwiftUI
+import Swinject
 
 @main
 struct RecipesApp: App {
+    let container = Container()
+    
     init() {
-        CoreRecipesDataRoot().registerRoot()
+        CoreRecipesDataRoot(rootContainer: container).registerRoot()
+        CoreRecipesPresentationRoot(rootContainer: container).registerRoot()
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipeListView()
         }
     }
 }

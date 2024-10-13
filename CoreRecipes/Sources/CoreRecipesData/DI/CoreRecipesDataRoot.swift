@@ -3,24 +3,24 @@ import Foundation
 import Swinject
 
 public class CoreRecipesDataRoot {
-    static let container = Container()
+    static var sharedContainer = Container()
     
-    public init() {
-        
+    public init(rootContainer: Container) {
+        CoreRecipesDataRoot.sharedContainer = rootContainer
     }
 }
 
 extension CoreRecipesDataRoot: DependencyInjectionRoot {
     public func registerRoot() {
-        let container = CoreRecipesDataRoot.container
+        let sharedContainer = CoreRecipesDataRoot.sharedContainer
         
-        container.register(RecipeRepository.self) { resolver in
+        sharedContainer.register(RecipeRepository.self) { resolver in
             let recipeService = resolver.resolve(RecipeService.self)!
             
             return RecipeRepositoryImpl(recipesService: recipeService)
         }
         
-        container.register(RecipeService.self) { _ in
+        sharedContainer.register(RecipeService.self) { _ in
             RecipeServiceImpl()
         }
     }

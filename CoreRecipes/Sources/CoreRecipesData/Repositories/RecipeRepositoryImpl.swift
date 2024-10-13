@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Jeffrey Santana on 10/12/24.
-//
-
 import CoreRecipesDomain
 import Foundation
 
