@@ -15,13 +15,14 @@ let package = Package(
         .library(name: "CoreRecipesPresentation",targets: ["CoreRecipesPresentation"])
     ],
     dependencies: [
+        .package(url: "https://github.com/onevcat/Kingfisher", from: "8.1.0"),
         .package(url: "https://github.com/Swinject/Swinject.git", from: "2.8.0")
     ],
     targets: [
         .target(name: "CoreRecipes"),
         .target(name: "CoreRecipesData", dependencies: ["CoreRecipesDomain"]),
         .target(name: "CoreRecipesDomain", dependencies: ["Swinject"]),
-        .target(name: "CoreRecipesPresentation", dependencies: ["CoreRecipesDomain"]),
+        .target(name: "CoreRecipesPresentation", dependencies: ["CoreRecipesDomain", "Kingfisher"]),
         .testTarget(
             name: "CoreRecipesTests",
             dependencies: ["CoreRecipes"]),
