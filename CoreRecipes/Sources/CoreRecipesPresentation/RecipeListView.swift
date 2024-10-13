@@ -14,11 +14,17 @@ public struct RecipeListView: View {
             VStack {
                 createSourceDataPicker()
                 
-                List(viewModel.recipes, id: \.uuid) { recipe in
-                    HStack {
-                        createRecipeImage(recipe.photoUrlSmall)
-                        createRecipeDetailsSection(from: recipe)
+                if !viewModel.recipes.isEmpty {
+                    List(viewModel.recipes, id: \.uuid) { recipe in
+                        HStack {
+                            createRecipeImage(recipe.photoUrlSmall)
+                            createRecipeDetailsSection(from: recipe)
+                        }
                     }
+                } else {
+                    Spacer()
+                    createEmptyRecipesView()
+                    Spacer()
                 }
             }
             .navigationTitle("Recipes")
@@ -53,6 +59,14 @@ public struct RecipeListView: View {
                 .font(.headline)
             Text(recipe.cuisine)
                 .font(.subheadline)
+        }
+    }
+    
+    private func createEmptyRecipesView() -> some View {
+        if viewModel.sourceData == .malformed {
+            Text("An error occured loading data. Please select an alternative source")
+        } else {
+            Text("Did not find any recipes to display")
         }
     }
 }
