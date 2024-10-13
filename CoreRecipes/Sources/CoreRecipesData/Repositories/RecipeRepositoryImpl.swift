@@ -9,7 +9,11 @@ import CoreRecipesDomain
 import Foundation
 
 class RecipeRepositoryImpl {
-    let recipesService = RecipeService()
+    private let recipesService: RecipeService
+    
+    init(recipesService: RecipeService) {
+        self.recipesService = recipesService
+    }
 }
 
 extension RecipeRepositoryImpl: RecipeRepository {

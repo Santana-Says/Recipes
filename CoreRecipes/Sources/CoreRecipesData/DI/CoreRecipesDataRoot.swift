@@ -14,8 +14,14 @@ extension CoreRecipesDataRoot: DependencyInjectionRoot {
     public func registerRoot() {
         let container = CoreRecipesDataRoot.container
         
-        container.register(RecipeRepository.self) { _ in
-            RecipeRepositoryImpl()
+        container.register(RecipeRepository.self) { resolver in
+            let recipeService = resolver.resolve(RecipeService.self)!
+            
+            return RecipeRepositoryImpl(recipesService: recipeService)
+        }
+        
+        container.register(RecipeService.self) { _ in
+            RecipeServiceImpl()
         }
     }
 }
