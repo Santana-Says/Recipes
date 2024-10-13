@@ -10,8 +10,8 @@ class RecipeRepositoryImpl {
 }
 
 extension RecipeRepositoryImpl: RecipeRepository {
-    func fetchRecipes() async -> [Recipe]? {
-        guard let response = try? await recipesService.fetchRecipes() else { return nil }
+    func fetchRecipes(fromSource source: RecipeSourceDataType) async -> [Recipe]? {
+        guard let response = try? await recipesService.fetchRecipes(fromSource: source) else { return nil }
         
         return response.recipes
     }

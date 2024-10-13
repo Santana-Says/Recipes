@@ -1,10 +1,13 @@
+import Combine
 import CoreRecipesDomain
 import Foundation
 import Swinject
 
 class RecipeListViewModel: ObservableObject {
     @Published private(set) var recipes = [Recipe]()
+    @Published var sourceData = RecipeSourceDataType.original
     
+    private var cancellables = Set<AnyCancellable>()
     let recipeRepository: RecipeRepository
     
     init() {
@@ -15,11 +18,17 @@ class RecipeListViewModel: ObservableObject {
         }
         
         getRecipes()
+        
+        $sourceData
+            .sink { [weak self] _ in
+                self?.getRecipes()
+            }
+            .store(in: &cancellables)
     }
     
     func getRecipes() {
         Task {
-            guard let recipes = await recipeRepository.fetchRecipes() else {
+            guard let recipes = await recipeRepository.fetchRecipes(fromSource: sourceData) else {
                 updateRecipes([])
                 return
             }

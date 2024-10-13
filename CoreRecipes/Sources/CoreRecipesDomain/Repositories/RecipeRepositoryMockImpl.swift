@@ -5,7 +5,7 @@ public class RecipeRepositoryMockImpl: RecipeRepository {
         
     }
     
-    public func fetchRecipes() async -> [Recipe]? {
+    public func fetchRecipes(fromSource source: RecipeSourceDataType) async -> [Recipe]? {
         MockRecipeData.recipes
     }
 }

@@ -3,7 +3,7 @@ import Kingfisher
 import SwiftUI
 
 public struct RecipeListView: View {
-    @StateObject var viewModel = RecipeListViewModel()
+    @StateObject private var viewModel = RecipeListViewModel()
     
     public init() {
         
@@ -11,24 +11,43 @@ public struct RecipeListView: View {
     
     public var body: some View {
         NavigationStack {
-            List(viewModel.recipes, id: \.uuid) { recipe in
-                HStack {
-                    createRecipeImage(recipe.photoUrlSmall)
-                    createRecipeDetailsSection(from: recipe)
+            VStack {
+                createSourceDataPicker()
+                
+                List(viewModel.recipes, id: \.uuid) { recipe in
+                    HStack {
+                        createRecipeImage(recipe.photoUrlSmall)
+                        createRecipeDetailsSection(from: recipe)
+                    }
                 }
             }
             .navigationTitle("Recipes")
         }
     }
     
-    func createRecipeImage(_ urlString: String) -> some View {
+    private func createSourceDataPicker() -> some View {
+        HStack {
+            Text("Select data source:")
+            
+            Spacer()
+            
+            Picker("", selection: $viewModel.sourceData) {
+                ForEach(RecipeSourceDataType.allCases.reversed(), id: \.rawValue) { value in
+                    Text(value.rawValue.capitalized).tag(value)
+                }
+            }
+        }
+        .padding(.horizontal)
+    }
+    
+    private func createRecipeImage(_ urlString: String) -> some View {
         KFImage(URL(string: urlString))
             .resizable()
             .frame(width: 50, height: 50)
             .background(Color.gray)
     }
     
-    func createRecipeDetailsSection(from recipe: Recipe) -> some View {
+    private func createRecipeDetailsSection(from recipe: Recipe) -> some View {
         VStack(alignment: .leading) {
             Text(recipe.name)
                 .font(.headline)

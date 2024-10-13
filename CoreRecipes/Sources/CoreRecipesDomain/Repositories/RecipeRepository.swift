@@ -8,5 +8,5 @@
 import Foundation
 
 public protocol RecipeRepository {
-    func fetchRecipes() async -> [Recipe]?
+    func fetchRecipes(fromSource source: RecipeSourceDataType) async -> [Recipe]?
 }
